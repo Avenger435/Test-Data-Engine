@@ -1,6 +1,48 @@
 # Test Data Engine
 
-A comprehensive web application for generating realistic test data with advanced schema management, data generation capabilities, and powerful export options. Perfect for developers, QA engineers, and data scientists who need high-quality test data for their applications.
+A comprehensive web application for generating real### Im## 📸 Screenshots
+
+> **Note**: Screenshots are stored in the `screenshots/` directory. See `screenshots/SCREENSHOT_GUIDE.md` for detailed instructions on taking professional screenshots.
+
+### Main Interface
+![Main Interface](screenshots/main-interface.png)
+*The main dashboard showing the tree-like column organization and quick action buttons.*
+
+### Column Management
+![Column Management](screenshots/column-management.png)
+*Tree-like column organization with categorized sections for Personal, Contact, Business, and Technical information.*
+
+### Advanced Data Generation
+![Advanced Settings](screenshots/advanced-settings.png)
+*Advanced data generation dialog with relationships, sequences, custom formats, and localization settings.*ality
+![Import Data](screenshots/import-data.png)
+*Import existing data from CSV, JSON, XML, YAML, or SQL files with automatic type detection.*
+
+## 📸 Taking Screenshots
+
+To update the screenshots in this README:
+
+1. **Start the application:**
+   ```bash
+   npm start
+   ```
+
+2. **Take screenshots of these key views:**
+   - `main-interface.png`: The main dashboard with column categories
+   - `column-management.png`: Tree-like column organization expanded
+   - `advanced-settings.png`: Advanced data generation dialog
+   - `data-generation.png`: Data generation section with export options
+   - `api-testing.png`: API testing interface
+   - `import-data.png`: File import dialog
+
+3. **Save screenshots to:** `screenshots/` directory
+
+4. **Recommended tools:**
+   - **macOS**: Cmd + Shift + 4 (area selection)
+   - **Windows**: Snipping Tool or Win + Shift + S
+   - **Browser extensions**: Full Page Screen Capture, Fireshot
+
+## 🚀 Getting Started test data with advanced schema management, data generation capabilities, and powerful export options. Perfect for developers, QA engineers, and data scientists who need high-quality test data for their applications.
 
 ![Test Data Engine](https://img.shields.io/badge/React-18.2.0-blue) ![Material--UI](https://img.shields.io/badge/Material--UI-5.14.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue) ![Faker.js](https://img.shields.io/badge/Faker.js-8.0+-green)
 
@@ -47,7 +89,33 @@ A comprehensive web application for generating realistic test data with advanced
 - **Intuitive UI**: Material-UI components with modern design
 - **Real-time Preview**: See generated data as you build your schema
 
-## 🚀 Getting Started
+## � Screenshots
+
+### Main Interface
+![Main Interface](screenshots/main-interface.png)
+*The main dashboard showing the tree-like column organization and quick action buttons.*
+
+### Column Management
+![Column Management](screenshots/column-management.png)
+*Tree-like column organization with categorized sections for Personal, Contact, Business, and Technical information.*
+
+### Advanced Data Generation
+![Advanced Settings](screenshots/advanced-settings.png)
+*Advanced data generation dialog with relationships, sequences, custom formats, and localization settings.*
+
+### Data Generation & Export
+![Data Generation](screenshots/data-generation.png)
+*Real-time data generation with export options in multiple formats (JSON, CSV, XML, YAML, SQL).*
+
+### API Testing
+![API Testing](screenshots/api-testing.png)
+*Built-in API endpoint testing with authentication support and request/response viewer.*
+
+### Import Functionality
+![Import Data](screenshots/import-data.png)
+*Import existing data from CSV, JSON, XML, YAML, or SQL files with automatic type detection.*
+
+## �🚀 Getting Started
 
 ### Prerequisites
 - **Node.js** (v16 or higher)
@@ -107,6 +175,7 @@ For each column, you can set:
 ### 3. Advanced Data Generation
 
 Access advanced options via the **"Advanced"** button:
+![Advanced Settings](screenshots/advanced-settings.png)
 - **Custom Sequences**: Auto-incrementing IDs with custom prefixes
 - **Foreign Keys**: Reference relationships between tables
 - **Localized Data**: Generate data in specific languages
