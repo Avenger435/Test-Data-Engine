@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Profile Schema",
+  "description": "Schema for user profile data with validations",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "title": "User ID",
+      "description": "Unique identifier for the user",
+      "type": "string",
+      "format": "uuid"
+    },
+    "firstName": {
+      "title": "First Name",
+      "description": "User's first name",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "lastName": {
+      "title": "Last Name",
+      "description": "User's last name",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "email": {
+      "title": "Email Address",
+      "description": "User's email address",
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "title": "Phone Number",
+      "description": "User's phone number",
+      "type": "string"
+    },
+    "age": {
+      "title": "Age",
+      "description": "User's age in years",
+      "type": "integer",
+      "minimum": 13,
+      "maximum": 120
+    },
+    "salary": {
+      "title": "Salary",
+      "description": "User's annual salary",
+      "type": "number",
+      "minimum": 0
+    },
+    "isActive": {
+      "title": "Active Status",
+      "description": "Whether the user account is active",
+      "type": "boolean"
+    },
+    "rating": {
+      "title": "User Rating",
+      "description": "User rating from 1-5 stars",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "createdAt": {
+      "title": "Created Date",
+      "description": "Account creation timestamp",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["userId", "firstName", "lastName", "email", "isActive"]
+}
