@@ -115,6 +115,127 @@ To update the screenshots in this README:
 ![Import Data](screenshots/import-data.png)
 *Import existing data from CSV, JSON, XML, YAML, or SQL files with automatic type detection.*
 
+## � Docker Deployment
+
+### Quick Start with Docker
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Avenger435/Test-Data-Engine.git
+cd test-data-engine
+```
+
+2. **Build and run with Docker Compose**
+```bash
+# Build and start the application
+make up
+
+# Or use docker-compose directly
+docker-compose up -d
+```
+
+3. **Access the application**
+   - Open [http://localhost:8080](http://localhost:8080) in your browser
+
+### Docker Commands
+
+```bash
+# Build the Docker image
+make build
+
+# Run the container
+make run
+
+# View logs
+make logs
+
+# Stop the application
+make down
+
+# Development mode with hot reloading
+make dev
+
+# Clean up everything
+make clean
+
+# Full rebuild
+make rebuild
+```
+
+### Manual Docker Commands
+
+```bash
+# Build the image
+docker build -t test-data-engine .
+
+# Run the container
+docker run -p 8080:80 --name test-data-engine-app test-data-engine
+
+# Run in detached mode
+docker run -d -p 8080:80 --name test-data-engine-app test-data-engine
+```
+
+### Docker Development
+
+For development with hot reloading:
+
+```bash
+# Start development environment
+docker-compose --profile dev up
+
+# Or build and run dev container
+docker build -f Dockerfile.dev -t test-data-engine-dev .
+docker run -p 3000:3000 -v $(pwd):/app test-data-engine-dev
+```
+
+### Docker Configuration
+
+- **Production Port**: 80 (mapped to 8080 on host)
+- **Development Port**: 3000 (with hot reloading)
+- **Health Check**: Available at `/health` endpoint
+- **Base Image**: Node.js 18 Alpine for build, Nginx Alpine for production
+
+### Testing Docker Build
+
+Test your Docker setup with the included test script:
+
+```bash
+# Run the Docker build test
+./docker-test.sh
+
+# Or test manually
+docker build -t test-data-engine .
+docker run -d -p 8080:80 --name test-data-engine-app test-data-engine
+curl http://localhost:8080
+```
+
+### Docker Troubleshooting
+
+If you encounter build issues, check the troubleshooting guide:
+
+```bash
+# View detailed troubleshooting guide
+cat DOCKER_TROUBLESHOOTING.md
+
+# Quick fixes
+docker system prune -a  # Clear all Docker cache
+npm cache clean --force  # Clear npm cache
+```
+
+Common issues and solutions:
+- **Network timeouts**: Use `DOCKER_BUILDKIT=1` for faster builds
+- **Memory issues**: Increase Docker Desktop memory allocation
+- **Permission errors**: Fix file permissions with `sudo chown -R $USER:$USER .`
+- **Build hangs**: Use `--no-cache` flag or check internet connectivity
+
+### Docker Image Details
+
+- **Multi-stage Build**: Optimized for production with separate build and runtime stages
+- **Alpine Linux**: Minimal base images for smaller size
+- **Health Checks**: Built-in health monitoring
+- **Security**: Non-root user, minimal attack surface
+- **Performance**: Gzip compression, optimized nginx configuration
+
 ## �🚀 Getting Started
 
 ### Prerequisites
@@ -125,7 +246,7 @@ To update the screenshots in this README:
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Avenger435/Test-Data-Engine.git
 cd test-data-engine
 ```
 

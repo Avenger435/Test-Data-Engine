@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Audit</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 1rem; }
+    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow: auto; }
+    .ok { color: green }
+    .warn { color: darkorange }
+    .err { color: red }
+  </style>
+</head>
+<body>
+  <h1>Build-time Security Snapshot</h1>
+  <p>This page shows the results of <code>npm audit --json</code> captured during the Docker build, and the OS package list.</p>
+
+  <h2>npm audit</h2>
+  <div id="audit">
+    <p>Loading...</p>
+  </div>
+
+  <h2>OS packages</h2>
+  <pre id="os">Loading...</pre>
+
+  <script>
+    async function loadAudit(){
+      try{
+        const r = await fetch('/security-audit.json');
+        const j = await r.json();
+        if(j.error){
+          document.getElementById('audit').innerHTML = '<p class="err">'+j.error+'</p>';
+          return;
+        }
+        const vulns = j.metadata && j.metadata.vulnerabilities ? Object.values(j.metadata.vulnerabilities).reduce((a,b)=>a+b,0) : (j.vulnerabilities?Object.keys(j.vulnerabilities).length:0);
+        document.getElementById('audit').innerHTML = `<p>Vulnerabilities (metadata): <strong>${vulns}</strong></p><pre>${JSON.stringify(j,null,2)}</pre>`;
+      }catch(e){
+        document.getElementById('audit').innerHTML = '<p class="err">Failed to load audit JSON: '+e+'</p>';
+      }
+    }
+    async function loadOS(){
+      try{
+        const r = await fetch('/os-packages.txt');
+        const t = await r.text();
+        document.getElementById('os').textContent = t;
+      }catch(e){
+        document.getElementById('os').textContent = 'Failed to load OS packages: '+e;
+      }
+    }
+    loadAudit(); loadOS();
+  </script>
+</body>
+</html>
