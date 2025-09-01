@@ -4,6 +4,11 @@ A comprehensive web application for generating realistic test data with advanced
 
 ![Test Data Engine](https://img.shields.io/badge/React-18.2.0-blue) ![Material--UI](https://img.shields.io/badge/Material--UI-5.14.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue) ![Faker.js](https://img.shields.io/badge/Faker.js-8.0+-green)
 
+try it:
+
+https://stackblitz.com/github/Avenger435/Test-Data-Engine?file=package-lock.json,package.json
+
+
 ## ✨ Features
 
 ### 🎯 Core Functionality
