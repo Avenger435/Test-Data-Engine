@@ -1,0 +1,42 @@
+services:
+  test-data-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        IMAGE_VERSION: ${IMAGE_VERSION:-latest}
+    image: test-data-engine:${IMAGE_VERSION:-latest}
+      # Uncomment the line below to use cache-enabled Dockerfile (requires Docker BuildKit)
+      # dockerfile: Dockerfile.cache
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    # healthcheck: use IPv4 loopback to avoid IPv6 resolution issues inside the container
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Development service (optional)
+  test-data-engine-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      # NPM configuration for development
+      - NPM_CONFIG_FETCH_RETRY_MINTIMEOUT=20000
+      - NPM_CONFIG_FETCH_RETRY_MAXTIMEOUT=120000
+      - NPM_CONFIG_FETCH_RETRIES=5
+    profiles:
+      - dev

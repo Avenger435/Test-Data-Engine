@@ -1,0 +1,71 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds
+build
+dist
+
+# Development files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+Dockerfile.dev
+Dockerfile.cache
+docker-compose.yml
+.dockerignore
+docker-test.sh
+Makefile
+DOCKER_TROUBLESHOOTING.md
+
+# Documentation
+README.md
+DEVELOPMENT.md
+screenshots/
+
+# Testing
+coverage
+.nyc_output
+test-results
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Temporary folders
+tmp
+temp
